@@ -6,10 +6,10 @@ import ToDoList from './components/ToDoList';
 import ToDoWrapper from './components/ToDoWrapper';
 
 const toDoItems = [
-  {id: 0, task: 'Finalize React course'},
-  {id: 1, task: 'Start React Hook course'},
-  {id: 2, task: 'Crate react "To Do list" App'},
-  {id: 3, task: "One more"}
+  {task: 'Finalize React course'},
+  {task: 'Start React Hook course'},
+  {task: 'Crate react "To Do list" App'},
+  {task: "One more"}
 ];
 
 function App() {

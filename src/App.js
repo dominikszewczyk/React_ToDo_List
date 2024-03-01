@@ -4,6 +4,7 @@ import './components/ToDoHeader';
 import ToDoHeader from './components/ToDoHeader';
 import ToDoList from './components/ToDoList';
 import ToDoWrapper from './components/ToDoWrapper';
+import { React, useState } from 'react'
 
 const toDoItems = [
   {task: 'Finalize React course'},
@@ -13,16 +14,25 @@ const toDoItems = [
 ];
 
 function App() {
+  const [toDoList, setToDoList] = useState([])
+
+  function addToDoList(title) {
+    let newItemArray = {id: "", title, completed: false};
+    let newToDoList = toDoList.slice();
+    newToDoList.push(newItemArray);
+    setToDoList(newToDoList);
+  }
+
   return (
     <div className="todo-app">
       <ToDoHeader header="My To Do App" />
 
       <ToDoWrapper>
-        <ToDoForm />
+        <ToDoForm onSubmit={ addToDoList } />
       </ToDoWrapper>
 
       <ToDoWrapper>
-        <ToDoList items={ toDoItems }/>
+        <ToDoList items={ toDoList }/>
       </ToDoWrapper>
     </div>
   );

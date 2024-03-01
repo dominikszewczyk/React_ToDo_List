@@ -1,8 +1,13 @@
 import React from 'react'
 
 export default function ToDoForm() {
+
+  function handleSubmit(event) {
+    event.preventDefault();
+  }
+
   return (
-    <form className="todo-form">
+    <form className="todo-form" onSubmit={ handleSubmit }>
         <input 
         type="text" 
         className="todo-form__input" 

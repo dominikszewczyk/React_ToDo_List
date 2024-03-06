@@ -3,11 +3,11 @@ import React from 'react'
 export default function ToDoList({ items }) {
 
   const listItems = items.map(item =>
-    <li className="todo-list__item">
+    <li key={ item.id } className="todo-list__item">
       <label>
         <input 
           type="checkbox" 
-          disabled={ item.competed }
+          disabled={ item.completed }
         />
         { item.title }
       </label>

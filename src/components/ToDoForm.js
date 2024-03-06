@@ -16,20 +16,18 @@ export default function ToDoForm( props) {
     };
 
     return (
-        <>
-            <form className="todo-form" onSubmit={ handleSubmit }>
-                <label htmlFor="item">New item</label>
-                <input
-                    type="text"
-                    id="item"
-                    className="todo-form__input" 
-                    value={newItem}
-                    onChange={event => handleInputChange(event)}
-                    placeholder="Add new item"/>
-                <button 
-                    type="submit" 
-                    className="todo-form__button">add</button>
-            </form>
-        </>
+        <form className="todo-form" onSubmit={ handleSubmit }>
+            <label htmlFor="item">New item</label>
+            <input
+                type="text"
+                id="item"
+                className="todo-form__input" 
+                value={newItem}
+                onChange={handleInputChange}
+                placeholder="Add new item"/>
+            <button 
+                type="submit" 
+                className="todo-form__button">add</button>
+        </form>
     )
 }

@@ -1,0 +1,12 @@
+.todo-list__stats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.todo-list__stats > p {
+    width: 50%;
+    text-align: center;
+}
+.todo-list__stats > p span {
+    font-weight: 700;
+}

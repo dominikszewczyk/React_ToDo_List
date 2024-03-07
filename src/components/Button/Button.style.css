@@ -1,0 +1,41 @@
+.todo__button {
+    border: none;
+    border-radius: 5px;
+    text-transform: capitalize;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: background-color 400ms;
+    padding: 3px 25px;
+    margin: 5px;
+    font-size: 14px;
+}
+.todo__button:hover {
+    cursor: pointer;
+    transition: background-color 400ms;
+}
+.todo__button--submit {
+    background-color: #55AB5C;
+    color: #ffffff;
+    padding: 6px 75px;
+    margin: 10px auto 15px;
+    font-size: 15px;
+}
+.todo__button--submit:hover {
+    background-color: #448949;
+}
+.todo__button--delete {
+    background-color: #ed6a5a;
+    color: #ffffff;
+}
+.todo__button--delete:hover {
+    background-color: #e8402c;
+}
+.todo__button--edit {
+    background-color: #edb45a;
+    color: #ffffff;
+}
+.todo__button--edit:hover {
+    background-color: #E89F2C;
+}

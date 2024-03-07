@@ -31,7 +31,8 @@ export default function ToDoForm(props) {
                 <Button
                     type="submite"
                     class="todo__button todo__button--submit"
-                    label="add" 
+                    label="add"
+                    disabled={newItem.length <= 0}
                 />
             </form>
         </div>

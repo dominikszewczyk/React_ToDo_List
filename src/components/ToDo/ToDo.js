@@ -25,7 +25,7 @@ export default function ToDo() {
     }
 
     function removeToDoItem(id) {
-        const updatedToDoList = toDoList.filter(item => item.id != id);
+        const updatedToDoList = toDoList.filter(item => item.id !== id);
         setToDoList(updatedToDoList);
     }
 

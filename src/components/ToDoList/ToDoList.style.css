@@ -10,3 +10,16 @@
 .todo-list__stats > p span {
     font-weight: 700;
 }
+.todo-paragraph--empty {
+    text-align: center;
+}
+.todo-list {
+    padding: 5px;
+}
+.todo-item__setting {
+    min-width: 200px;
+}
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+}

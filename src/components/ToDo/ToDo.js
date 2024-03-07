@@ -9,7 +9,24 @@ export default function ToDo() {
 
     function addToDoItem(toDoTitle) {
         const newToDoItem = { id: crypto.randomUUID(), title: toDoTitle, completed: false };
-        setToDoList([...toDoList, newToDoItem]);
+        setToDoList([newToDoItem, ...toDoList]);
+    }
+
+    function toggleToDoItem(id, completed) {
+        const updatedToDoList = toDoList.map(item => {
+            if (item.id === id) {
+                return { ...item, completed }
+            } else {
+                return item
+            }
+        });
+        updatedToDoList.sort((a, b) => (a.completed === b.completed ? 0 : a.completed ? 1 : -1))
+        setToDoList(updatedToDoList);
+    }
+
+    function removeToDoItem(id) {
+        const updatedToDoList = toDoList.filter(item => item.id != id);
+        setToDoList(updatedToDoList);
     }
 
     return (
@@ -21,7 +38,11 @@ export default function ToDo() {
 
             <ToDoForm onSubmit={addToDoItem} />
 
-            <ToDoList items={toDoList} />
+            <ToDoList
+                items={toDoList}
+                toggleToDoItem={toggleToDoItem}
+                removeToDoItem={removeToDoItem}
+            />
         </div>
     )
 }

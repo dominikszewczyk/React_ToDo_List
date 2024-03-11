@@ -29,10 +29,10 @@ export default function ToDoForm(props) {
                     onChange={handleInputChange}
                     placeholder="What would you like to do?" />
                 <Button
-                    type="submite"
+                    type="submit"
                     class="todo__button todo__button--submit"
                     label="add"
-                    disabled={newItem.length <= 0}
+                    disabled={!newItem.length}
                 />
             </form>
         </div>

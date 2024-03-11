@@ -5,8 +5,6 @@ import './ToDoList.style.css'
 
 export default function ToDoList({ items, toggleToDoItem, removeToDoItem }) {
 
-    console.log(items);
-
     return (
 
         <div className="todo-list__wrapper">

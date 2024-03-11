@@ -1,3 +1,12 @@
+:root {
+    --disabled-background: #D3D3D3;
+    --submit-background: #55AB5C;
+    --submit-background-hover: #448949;
+    --delete-background: #ed6a5a;
+    --delete-background-hover: #e8402c;
+    --edit-background: #edb45a;
+    --edit-background-hover: #E89F2C;
+}
 .todo__button {
     border: none;
     border-radius: 5px;
@@ -15,35 +24,34 @@
     cursor: pointer;
     transition: background-color 400ms;
 }
-.todo__button:disabled,
 .todo__button[disabled] {
-    background-color: #D3D3D3;
+    background-color: var(--disabled-background);
     cursor: not-allowed;
 }
 .todo__button[disabled]:hover {
-    background-color: #D3D3D3;
+    background-color: var(--disabled-background);
 }
 .todo__button--submit {
-    background-color: #55AB5C;
+    background-color: var(--submit-background);
     color: #ffffff;
     padding: 6px 75px;
     margin: 10px auto 15px;
     font-size: 15px;
 }
 .todo__button--submit:hover {
-    background-color: #448949;
+    background-color: var(--submit-background-hover);
 }
 .todo__button--delete {
-    background-color: #ed6a5a;
+    background-color: var(--delete-background);
     color: #ffffff;
 }
 .todo__button--delete:hover {
-    background-color: #e8402c;
+    background-color: var(--delete-background-hover);
 }
 .todo__button--edit {
-    background-color: #edb45a;
+    background-color: var(--edit-background);
     color: #ffffff;
 }
 .todo__button--edit:hover {
-    background-color: #E89F2C;
+    background-color: var(--edit-background-hover);
 }

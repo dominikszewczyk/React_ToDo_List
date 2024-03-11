@@ -29,6 +29,17 @@ export default function ToDo() {
         setToDoList(updatedToDoList);
     }
 
+    function updateToDoItem(id, title) {
+        const updatedToDoList = toDoList.map(item => {
+            if (item.id === id) {
+                return { ...item, title }
+            } else {
+                return item
+            }
+        });
+        setToDoList(updatedToDoList);
+    }
+
     return (
         <div className="todo__wrapper">
 
@@ -42,6 +53,7 @@ export default function ToDo() {
                 items={toDoList}
                 toggleToDoItem={toggleToDoItem}
                 removeToDoItem={removeToDoItem}
+                updateToDoItem={updateToDoItem}
             />
         </div>
     )

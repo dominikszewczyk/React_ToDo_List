@@ -34,9 +34,6 @@
 .todo__button--submit {
     background-color: var(--submit-background);
     color: #ffffff;
-    padding: 6px 75px;
-    margin: 10px auto 15px;
-    font-size: 15px;
 }
 .todo__button--submit:hover {
     background-color: var(--submit-background-hover);

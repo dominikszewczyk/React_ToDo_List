@@ -17,3 +17,8 @@
     line-height: 1.5;
     border-width: 0 0 2px;
 }
+.todo-form .todo__button--submit {
+    padding: 6px 75px;
+    margin: 10px auto 15px;
+    font-size: 15px;
+}

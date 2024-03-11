@@ -35,16 +35,12 @@ export default function ToDoList({ items, toggleToDoItem, removeToDoItem }) {
                                         {item.title}
                                     </label>
                                     <div className="todo-item__setting">
-
-                                        <button
-                                            type="button"
-                                            className="todo__button todo__button--delete"
-                                            onClick={() => removeToDoItem(item.id)}>delete</button>
-                                        {/* <Button
+                                        <Button
                                             type="button"
                                             class="todo__button todo__button--delete"
                                             label="delete"
-                                        /> */}
+                                            onClick={() => removeToDoItem(item.id)}
+                                        />
                                         <Button
                                             type="button"
                                             class="todo__button todo__button--edit"

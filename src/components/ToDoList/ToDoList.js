@@ -26,6 +26,7 @@ export default function ToDoList({ items, toggleToDoItem, removeToDoItem, update
                         {
                             items.map(item =>
                                 <ToDoTask key={item.id} item={item} toggleToDoItem={toggleToDoItem} removeToDoItem={removeToDoItem} updateToDoItem={updateToDoItem} />
+
                             )
                         }
                     </ul>
@@ -47,6 +48,7 @@ function ToDoTask({ item, toggleToDoItem, removeToDoItem, updateToDoItem }) {
 
     return (
         <li className="todo-item">
+
             <label>
                 <input
                     type="checkbox"
@@ -72,6 +74,7 @@ function ToDoTask({ item, toggleToDoItem, removeToDoItem, updateToDoItem }) {
                     />
                 }
                 {!isEditing &&
+
                     <Button
                         type="button"
                         class="todo__button todo__button--edit"

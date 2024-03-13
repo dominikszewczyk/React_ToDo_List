@@ -3,6 +3,12 @@
     padding: 20px;
     border-radius: 10px;
 }
+.light .todo-form__wrapper {
+    background-color: white;
+}
+.dark .todo-form__wrapper {
+    background-color: #8755AB;
+}
 .todo-form {
     display: flex;
     flex-direction: column;
@@ -16,6 +22,19 @@
     letter-spacing: 1px;
     line-height: 1.5;
     border-width: 0 0 2px;
+    border-color: #000000;
+}
+.light .todo-form > input {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #000000;
+}
+.dark .todo-form > input {
+    background-color: #8755AB;
+    border-color: #ffffff;
+}
+.dark .todo-form > input::placeholder {
+    color: #ffffff;
 }
 .todo-form .todo__button--submit {
     padding: 6px 75px;

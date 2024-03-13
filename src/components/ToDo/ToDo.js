@@ -1,22 +1,26 @@
 import { React, useState, useEffect } from 'react'
 import ToDoForm from '../ToDoForm/ToDoForm';
 import ToDoList from '../ToDoList/ToDoList';
+import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
 
 import './ToDo.style.css';
 
 export default function ToDo() {
-    const [toDoList, setToDoList] = useState(getLocalToDoList)
+    const [toDoList, setToDoList] = useState(getLocalData("toDoList", []))
+    const [theme, setTheme] = useState(getLocalData("theme", "light"))
 
-    function getLocalToDoList() {
-        const localToDoList = localStorage.getItem("toDoList")
-        return (localToDoList == null) ? [] : JSON.parse(localToDoList);
+    useEffect(() => setLocalData("toDoList", toDoList), [toDoList]);
+    useEffect(() => setLocalData("theme", theme), [theme]);
+
+    function getLocalData(id, defaultValue) {
+        const localData = localStorage.getItem(id)
+        return (localData == null) ? defaultValue : JSON.parse(localData);
     }
 
-    function setLocalToDoList() {
-        localStorage.setItem("toDoList", JSON.stringify(toDoList))
+    function setLocalData(id, data) {
+        localStorage.setItem(id, JSON.stringify(data))
     }
 
-    useEffect(setLocalToDoList, [toDoList]);
 
     function addToDoItem(toDoTitle) {
         const newToDoItem = { id: crypto.randomUUID(), title: toDoTitle, completed: false };
@@ -51,21 +55,30 @@ export default function ToDo() {
         setToDoList(updatedToDoList);
     }
 
+    function toggleTheme() {
+        setTheme((theme) => (theme === 'light' ? 'dark' : 'light'));
+    }
+
     return (
-        <div className="todo__wrapper">
+        <div className={`todo ${theme}`}>
+            <div className="todo__wrapper">
 
-            <div className="todo-header">
-                <h1 className="todo-header__title">ToDo App</h1>
+                <div className="todo-header">
+                    <div className="header-menu">
+                        <ToggleSwitch onClick={toggleTheme} />
+                    </div>
+                    <h1 className="todo-header__title">ToDo App</h1>
+                </div>
+
+                <ToDoForm onSubmit={addToDoItem} />
+
+                <ToDoList
+                    items={toDoList}
+                    toggleToDoItem={toggleToDoItem}
+                    removeToDoItem={removeToDoItem}
+                    updateToDoItem={updateToDoItem}
+                />
             </div>
-
-            <ToDoForm onSubmit={addToDoItem} />
-
-            <ToDoList
-                items={toDoList}
-                toggleToDoItem={toggleToDoItem}
-                removeToDoItem={removeToDoItem}
-                updateToDoItem={updateToDoItem}
-            />
         </div>
     )
 }

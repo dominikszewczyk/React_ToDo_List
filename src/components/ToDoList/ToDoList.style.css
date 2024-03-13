@@ -2,6 +2,13 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    color: #000000
+}
+.light .todo-list__stats {
+    color: #000000
+}
+.dark .todo-list__stats {
+    color: #ffffff
 }
 .todo-list__stats > p {
     width: 50%;
@@ -15,6 +22,15 @@
 }
 .todo-list {
     padding: 5px;
+}
+.todo-item {
+    color: #000000;
+}
+.light .todo-item {
+    color: #000000;
+}
+.dark .todo-item {
+    color: #ffffff;
 }
 .todo-item__setting {
     min-width: 200px;

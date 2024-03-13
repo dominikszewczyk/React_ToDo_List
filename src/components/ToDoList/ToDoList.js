@@ -1,10 +1,13 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import Button from '../Button/Button'
+import ToDoItemContext from '../../context/ToDoItemContext.js'
 
 import './ToDoList.style.css'
 
-export default function ToDoList({ items, toggleToDoItem, removeToDoItem, updateToDoItem }) {
+export default function ToDoList() {
+    const items = useContext(ToDoItemContext).toDoList;
+
     return (
 
         <div className="todo-list__wrapper">
@@ -25,7 +28,7 @@ export default function ToDoList({ items, toggleToDoItem, removeToDoItem, update
                     <ul className="todo-list">
                         {
                             items.map(item =>
-                                <ToDoTask key={item.id} item={item} toggleToDoItem={toggleToDoItem} removeToDoItem={removeToDoItem} updateToDoItem={updateToDoItem} />
+                                <ToDoTask key={item.id} item={item} />
                             )
                         }
                     </ul>
@@ -35,9 +38,13 @@ export default function ToDoList({ items, toggleToDoItem, removeToDoItem, update
     )
 }
 
-function ToDoTask({ item, toggleToDoItem, removeToDoItem, updateToDoItem }) {
+function ToDoTask({ item }) {
     const [isEditing, setIsEditing] = useState(false);
     const [editingValue, setEditingValue] = useState("")
+
+    const toggleToDoItem = useContext(ToDoItemContext).toggleToDoItem;
+    const removeToDoItem = useContext(ToDoItemContext).removeToDoItem;
+    const updateToDoItem = useContext(ToDoItemContext).updateToDoItem;
 
     function handleEditClick(id) {
         setIsEditing(!isEditing);
@@ -73,7 +80,6 @@ function ToDoTask({ item, toggleToDoItem, removeToDoItem, updateToDoItem }) {
                     />
                 }
                 {!isEditing &&
-
                     <Button
                         type="button"
                         class="todo__button todo__button--edit"

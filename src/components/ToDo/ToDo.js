@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import ToDoForm from '../ToDoForm/ToDoForm';
 import ToDoList from '../ToDoList/ToDoList';
 import ToggleSwitch from '../ToggleSwitch/ToggleSwitch';
+import ToDoItemContext from '../../context/ToDoItemContext.js'
 
 import './ToDo.style.css';
 
@@ -72,12 +73,9 @@ export default function ToDo() {
 
                 <ToDoForm onSubmit={addToDoItem} />
 
-                <ToDoList
-                    items={toDoList}
-                    toggleToDoItem={toggleToDoItem}
-                    removeToDoItem={removeToDoItem}
-                    updateToDoItem={updateToDoItem}
-                />
+                <ToDoItemContext.Provider value={{ toDoList, toggleToDoItem, removeToDoItem, updateToDoItem }}>
+                    <ToDoList />
+                </ToDoItemContext.Provider>
             </div>
         </div>
     )

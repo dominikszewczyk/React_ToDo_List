@@ -7,7 +7,7 @@ export default function ToggleSwitch({ onClick, checked }) {
             type="checkbox"
             className="theme-checkbox"
             onChange={onClick}
-            checked={checked}
+            defaultChecked={checked}
         />
     )
 }

@@ -1,13 +1,10 @@
 import React from 'react'
-import { useState, useContext } from 'react'
+import { useState } from 'react'
 import Button from '../Button/Button'
-import ToDoItemContext from '../../context/ToDoItemContext.js'
 
 import './ToDoList.style.css'
 
-export default function ToDoList() {
-    const items = useContext(ToDoItemContext).toDoList;
-
+export default function ToDoList({ items, toggleToDoItem, removeToDoItem, updateToDoItem }) {
     return (
 
         <div className="todo-list__wrapper">
@@ -28,7 +25,7 @@ export default function ToDoList() {
                     <ul className="todo-list">
                         {
                             items.map(item =>
-                                <ToDoTask key={item.id} item={item} />
+                                <ToDoTask key={item.id} item={item} toggleToDoItem={toggleToDoItem} removeToDoItem={removeToDoItem} updateToDoItem={updateToDoItem} />
                             )
                         }
                     </ul>
@@ -38,17 +35,13 @@ export default function ToDoList() {
     )
 }
 
-function ToDoTask({ item }) {
+function ToDoTask({ item, toggleToDoItem, removeToDoItem, updateToDoItem }) {
     const [isEditing, setIsEditing] = useState(false);
     const [editingValue, setEditingValue] = useState("")
 
-    const toggleToDoItem = useContext(ToDoItemContext).toggleToDoItem;
-    const removeToDoItem = useContext(ToDoItemContext).removeToDoItem;
-    const updateToDoItem = useContext(ToDoItemContext).updateToDoItem;
-
-    function handleEditClick(id) {
+    function handleEditClick(item) {
         setIsEditing(!isEditing);
-        updateToDoItem(item.id, editingValue)
+        updateToDoItem({ id: item.id, title: editingValue, completed: item.completed })
         setEditingValue(item.title)
     }
 
@@ -59,7 +52,8 @@ function ToDoTask({ item }) {
                 <input
                     type="checkbox"
                     checked={item.completed}
-                    onChange={event => toggleToDoItem(item.id, event.target.checked)}
+                    onChange={event => toggleToDoItem({ ...item, completed: event.target.checked })}
+                    disabled={isEditing}
                 />
                 {isEditing && <input type="text" value={editingValue} onChange={(event) => setEditingValue(event.target.value)} />}
                 {!isEditing && item.title}
@@ -69,22 +63,23 @@ function ToDoTask({ item }) {
                     type="button"
                     class="todo__button todo__button--delete"
                     label="delete"
-                    onClick={() => removeToDoItem(item.id)}
+                    onClick={() => removeToDoItem(item)}
                 />
                 {isEditing &&
                     <Button
                         type="button"
                         class="todo__button todo__button--submit"
                         label="save"
-                        onClick={() => handleEditClick(item.id)}
+                        onClick={() => handleEditClick(item)}
                     />
                 }
                 {!isEditing &&
+
                     <Button
                         type="button"
                         class="todo__button todo__button--edit"
                         label="edit"
-                        onClick={() => handleEditClick(item.id)}
+                        onClick={() => handleEditClick(item)}
                     />
                 }
             </div>

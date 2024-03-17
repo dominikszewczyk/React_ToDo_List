@@ -31,6 +31,9 @@ export default function ToDo() {
     function updateToDoItem(toDoItem) {
         dispatch({ type: "edited", item: toDoItem })
     }
+    function deleteAllToDoItems() {
+        dispatch({ type: "all-removed" })
+    }
 
     function toggleTheme() {
         setTheme((theme) => (theme === constants.lightThemeName ? constants.darkThemeName : constants.lightThemeName));
@@ -53,6 +56,7 @@ export default function ToDo() {
                     toggleToDoItem={toggleToDoItem}
                     removeToDoItem={removeToDoItem}
                     updateToDoItem={updateToDoItem}
+                    deleteAllToDoItems={deleteAllToDoItems}
                 />
             </div>
         </div>

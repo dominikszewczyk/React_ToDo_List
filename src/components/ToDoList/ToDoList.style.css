@@ -17,15 +17,18 @@
 .todo-list__stats > p span {
     font-weight: 700;
 }
-.todo-paragraph--empty {
+.todo-paragraph--empty,
+.light .todo-paragraph--empty {
+    color: #000000;
     text-align: center;
+}
+.dark .todo-paragraph--empty {
+    color: #ffffff;
 }
 .todo-list {
     padding: 5px;
 }
-.todo-item {
-    color: #000000;
-}
+.todo-item,
 .light .todo-item {
     color: #000000;
 }

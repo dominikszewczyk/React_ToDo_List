@@ -4,7 +4,7 @@ import Button from '../Button/Button'
 
 import './ToDoList.style.css'
 
-export default function ToDoList({ items, toggleToDoItem, removeToDoItem, updateToDoItem }) {
+export default function ToDoList({ items, toggleToDoItem, removeToDoItem, updateToDoItem, deleteAllToDoItems }) {
     return (
 
         <div className="todo-list__wrapper">
@@ -29,6 +29,14 @@ export default function ToDoList({ items, toggleToDoItem, removeToDoItem, update
                             )
                         }
                     </ul>
+                    <div class="todo-list__stats">
+                        <Button
+                            type="button"
+                            class="todo__button todo__button--delete todo__button--big"
+                            label="delete all"
+                            onClick={deleteAllToDoItems}
+                        />
+                    </div>
                 </>
             }
         </div>
@@ -61,14 +69,14 @@ function ToDoTask({ item, toggleToDoItem, removeToDoItem, updateToDoItem }) {
             <div className="todo-item__setting">
                 <Button
                     type="button"
-                    class="todo__button todo__button--delete"
+                    class="todo__button todo__button--delete todo__button--small"
                     label="delete"
                     onClick={() => removeToDoItem(item)}
                 />
                 {isEditing &&
                     <Button
                         type="button"
-                        class="todo__button todo__button--submit"
+                        class="todo__button todo__button--submit todo__button--small"
                         label="save"
                         onClick={() => handleEditClick(item)}
                     />
@@ -77,7 +85,7 @@ function ToDoTask({ item, toggleToDoItem, removeToDoItem, updateToDoItem }) {
 
                     <Button
                         type="button"
-                        class="todo__button todo__button--edit"
+                        class="todo__button todo__button--edit todo__button--small"
                         label="edit"
                         onClick={() => handleEditClick(item)}
                     />

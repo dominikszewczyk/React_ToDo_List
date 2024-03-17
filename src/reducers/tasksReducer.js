@@ -28,6 +28,9 @@ export default function tasksReducer(toDoList, action) {
             });
             return updatedToDoList
         }
+        case "all-removed": {
+            return []
+        }
         default: {
             throw Error('Unknown action: ' + action.type);
         }

@@ -30,7 +30,7 @@ export default function ToDoForm(props) {
                     placeholder="What would you like to do?" />
                 <Button
                     type="submit"
-                    class="todo__button todo__button--submit"
+                    class="todo__button todo__button--submit  todo__button--big"
                     label="add"
                     disabled={!newItem.length}
                 />

@@ -36,8 +36,3 @@
 .dark .todo-form > input::placeholder {
     color: #ffffff;
 }
-.todo-form .todo__button--submit {
-    padding: 6px 75px;
-    margin: 10px auto 15px;
-    font-size: 15px;
-}

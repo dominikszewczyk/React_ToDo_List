@@ -1,4 +1,5 @@
 import { React, useState } from 'react'
+import Button from '../Button/Button'
 
 import './ToDoForm.style.css'
 
@@ -27,9 +28,12 @@ export default function ToDoForm(props) {
                     value={newItem}
                     onChange={handleInputChange}
                     placeholder="What would you like to do?" />
-                <button
+                <Button
                     type="submit"
-                    className="todo-form__button">add</button>
+                    class="todo__button todo__button--submit  todo__button--big"
+                    label="add"
+                    disabled={!newItem.length}
+                />
             </form>
         </div>
     )

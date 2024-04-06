@@ -3,6 +3,12 @@
     padding: 20px;
     border-radius: 10px;
 }
+.light .todo-form__wrapper {
+    background-color: white;
+}
+.dark .todo-form__wrapper {
+    background-color: #8755AB;
+}
 .todo-form {
     display: flex;
     flex-direction: column;
@@ -16,25 +22,17 @@
     letter-spacing: 1px;
     line-height: 1.5;
     border-width: 0 0 2px;
+    border-color: #000000;
 }
-.todo-form > button {
-    width: 40%;
-    padding: 6px;
-    margin: 10px auto 15px;
-    background-color: #ed6a5a;
-    border: none;
-    border-radius: 5px;
-    text-transform: capitalize;
+.light .todo-form > input {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: #000000;
+}
+.dark .todo-form > input {
+    background-color: #8755AB;
+    border-color: #ffffff;
+}
+.dark .todo-form > input::placeholder {
     color: #ffffff;
-    font-size: 15px;
-    font-weight: 400;
-    letter-spacing: 1px;
-    line-height: 1.5;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    transition: background-color 400ms;
-}
-.todo-form > button:hover {
-    cursor: pointer;
-    background-color: #d55c4e;
-    transition: background-color 400ms;
 }
